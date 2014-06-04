@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout android:id="@+id/widget0"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<TextView android:id="@+id/txtLog" android:layout_width="286px"
+		android:layout_height="26px" android:text="Iniciando ..."
+		android:layout_x="1px" android:layout_y="2px">
+	</TextView>
+	<ProgressBar android:id="@+id/pgBar" android:layout_width="15px"
+		android:layout_height="17px" android:visibility="invisible"
+		android:layout_x="297px" android:layout_y="10px">
+	</ProgressBar>
+	<TextView android:id="@+id/txtLatitude" android:layout_width="286px"
+		android:layout_height="26px" android:text="Longitude:  aguarde ..."
+		android:layout_x="20px"
+		android:layout_y="64px">
+	</TextView>
+	<TextView android:id="@+id/txtLongitude" android:layout_width="286px"
+		android:layout_height="26px" android:text="Longitude:  aguarde ..."
+		android:layout_x="19px" android:layout_y="102px">
+	</TextView>
+	<TextView android:id="@+id/txtEndereco" android:layout_width="288px"
+		android:layout_height="97px" android:text=" aguarde ..." android:layout_x="22px"
+		android:layout_y="158px">
+	</TextView>
+	<TextView android:id="@+id/lblEndereco" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="Endereco"
+		android:layout_x="20px" android:layout_y="137px">
+	</TextView>
+	<TextView android:id="@+id/lblSolicitacao"
+		android:layout_x="18px" android:layout_y="277px" android:layout_height="80px" android:layout_width="388px" android:text="@string/app_name">
+	</TextView>
+
+	<Button
+	    android:id="@+id/btnLocalizar"
+	    android:layout_width="110dp"
+	    android:layout_height="wrap_content"
+	    android:layout_x="11dp"
+	    android:layout_y="385dp"
+	    android:text="Novo endereço" />
+
+	<Button
+	    android:id="@+id/btnChamarTaxi"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_x="177dp"
+	    android:layout_y="388dp"
+	    android:enabled="false"
+	    android:text="Chamar taxi !" />
+
+</AbsoluteLayout>
