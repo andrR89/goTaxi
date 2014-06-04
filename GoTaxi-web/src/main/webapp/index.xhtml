@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Taxi GO - Corridas Pendentes</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script type="javascript"
+		src="http://maps.google.com/maps/api/js?sensor=false" />
+</h:head>
+<h:body>
+	<p align="center">
+		<p:graphicImage url="images/logo_web.png" alt="GoTaxi Webe" />
+	</p>
+	<h:form>
+		<p:dataTable var="corrida" value="#{corridaBean.corridasList}"
+			id="gridCorridas">
+			<p:column>
+				<f:facet name="header">  
+                        Id   
+                    </f:facet>
+				<h:outputText value="#{corrida.id}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">  
+                        Hora Solicitacao   
+                    </f:facet>
+				<h:outputText value="#{corrida.horaSolicitacao}">
+					<f:convertDateTime pattern="dd/MM/yyyy HH:mm" />
+				</h:outputText>
+			</p:column>
+
+			<p:column>
+				<f:facet name="header">  
+                        Passageiro   
+                    </f:facet>
+				<h:outputText value="#{corrida.passageiro.email}" />
+			</p:column>
+
+			<p:column>
+				<f:facet name="header">  
+                        Logradouro   
+                    </f:facet>
+				<h:outputText value="#{corrida.logradouro}" />
+			</p:column>
+
+			<p:column>
+				<f:facet name="header">
+	                	Mapa
+	                </f:facet>
+
+				<p:commandButton type="button" image="ui-icon ui-icon-pin-s"
+					value="Mapa" onclick="dlg.show()" />
+				<p:dialog widgetVar="dlg" width="625" height="450" modal="true">
+
+					<p:gmap center="#{corrida.latOrigem}, #{corrida.lonOrigem}"
+						zoom="17" type="HYBRID" style="width:600px;height:400px"
+						widgetVar="mymap" />
+				</p:dialog>
+
+			</p:column>
+		</p:dataTable>
+		<p:poll interval="10" listener="#{corridaBean.atualizaCorridas}"
+			update="gridCorridas" />
+	</h:form>
+</h:body>
+</html>
